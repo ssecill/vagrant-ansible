@@ -10,3 +10,8 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+```
+helm create mychart
+helm upgrade --install secil ./mychart -f ./mychart/values.yaml --set "services.secil\.services\.sns.cap_add={SYS_ADMIN,TEST}"
+helm get values secil
+```
